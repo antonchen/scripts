@@ -1,6 +1,6 @@
 #!/bin/bash
 # Create Date: 2017-07-05 20:00:46
-# Last Modified: 2017-07-05 21:45:27
+# Last Modified: 2017-07-06 11:35:01
 Version='v2.33'
 
 read -p 'Server: ' server
@@ -66,7 +66,7 @@ cat > $HOME/Library/LaunchAgents/v2ray.plist << _LaunchAgents_
 </dict>
 </plist>
 _LaunchAgents_
-ps -ef|grep -q /usr/local/bin/v2ray
+ps -ef|grep -v grep|grep -q /usr/local/bin/v2ray
 if [ $? -eq 0 ]; then
     launchctl unload $HOME/Library/LaunchAgents/v2ray.plist
 fi
